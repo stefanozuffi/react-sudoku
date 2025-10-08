@@ -178,7 +178,7 @@ export function FromPuzzleToBoard(puzzle) {
                     row,
                     col,
                     value: thisValue !== 0 ? thisValue : null,
-                    isInitial: thisValue ==! 0
+                    isInitial: thisValue !== 0
                 }
         }
            )

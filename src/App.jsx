@@ -1,7 +1,6 @@
 import Board from "./assets/components/Board"
 
 function App() {
-  
 
   return (
     <>

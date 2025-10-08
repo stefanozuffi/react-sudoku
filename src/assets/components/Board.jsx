@@ -3,6 +3,8 @@ import emptyBoard from "../data/initialBoard"
 import { puzzles, thisPuzzle, FromPuzzleToBoard } from "../data/examples"
 import Cell from "./Cell"
 import updateCell from "../utils/updateCell"
+import CheckSolution from "./CheckSolution"
+import { bruteCheck } from "../utils/isSolution"
 
 export default function Board() {
     const [board, setBoard] = useState(thisPuzzle)
@@ -12,7 +14,14 @@ export default function Board() {
     function handleCellClick(e) {
 
         const id = e.currentTarget.getAttribute('data-id')
-        setSelectedCellID(id)
+        const cell = board.find(c => c.id === id)
+
+        if (cell.isInitial) {
+            setSelectedCellID(null)
+        } else {
+            setSelectedCellID(id)
+        }
+        
 
     }
 
@@ -48,17 +57,27 @@ export default function Board() {
     }, [])
 
 
+    //To handle debug brute check for mistakes
+    function debugHandleClick() {
+        bruteCheck(board)
+    }
+
     return(
-        <div className="board">
-            {board.map(cell => 
-                <Cell 
-                    id={cell.id} 
-                    value={cell.value} 
-                    isinitial={cell.isInitial} 
-                    handleClick={handleCellClick}
-                    key={cell.id}/>
-                )
-            }
+        <div> 
+            <div className="board">
+                {board.map(cell => 
+                    <Cell 
+                        id={cell.id} 
+                        value={cell.value} 
+                        isInitial={cell.isInitial} 
+                        isSelected={cell.id === selectedCellID}
+                        handleClick={handleCellClick}
+                        key={cell.id}/>
+                    )
+                }
+            </div>
+            <CheckSolution handleCheck={debugHandleClick}/>
         </div>
+       
     )
 }
