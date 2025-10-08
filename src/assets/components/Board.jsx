@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
-import initialBoard from "../data/initialBoard"
+import emptyBoard from "../data/initialBoard"
+import { puzzles, thisPuzzle, FromPuzzleToBoard } from "../data/examples"
 import Cell from "./Cell"
 import updateCell from "../utils/updateCell"
 
-
 export default function Board() {
-
-    const [board, setBoard] = useState(initialBoard)
+    const [board, setBoard] = useState(thisPuzzle)
     const [selectedCellID, setSelectedCellID] = useState(null)
 
     //to handle cell selection
@@ -48,7 +47,7 @@ export default function Board() {
         return () => document.removeEventListener('click', handleClickOutside)
     }, [])
 
-    
+
     return(
         <div className="board">
             {board.map(cell => 

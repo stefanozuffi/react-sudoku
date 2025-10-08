@@ -1,4 +1,4 @@
-const initialBoard = Array(9).fill(null).flatMap((_, row) => 
+const emptylBoard = Array(9).fill(null).flatMap((_, row) => 
     Array(9).fill(null).map((_, col) => ({
       id: `${row}-${col}`,
       row,
@@ -8,4 +8,4 @@ const initialBoard = Array(9).fill(null).flatMap((_, row) =>
     }))
   );
 
-export default initialBoard;
+export default emptylBoard;
