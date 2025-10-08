@@ -5,35 +5,50 @@ import updateCell from "../utils/updateCell"
 
 
 export default function Board() {
-    const [board, setBoard] = useState(initialBoard)
-    const [selectedCell, setSelectedCell] = useState(null)
 
+    const [board, setBoard] = useState(initialBoard)
+    const [selectedCellID, setSelectedCellID] = useState(null)
+
+    //to handle cell selection
     function handleCellClick(e) {
 
         const id = e.currentTarget.getAttribute('data-id')
-        const thisCell = board.find(cell => cell.id === id)
-        
-        board.find(cell => cell.id === id) ? setSelectedCell(thisCell) : console.log('Cell not found -- id:', id)
-        console.log('you clicked cell:', selectedCell.id)
+        setSelectedCellID(id)
+
     }
 
+    //to type/modify/delete numbers inside the cells
     useEffect(()=> {
         const handleKeyPress = (e) => {
-            if (selectedCell && e.key >= '1' && e.key <= '9')  {
+            if (selectedCellID && e.key >= '1' && e.key <= '9')  {
                 setBoard(board.map(cell =>
-                    cell === selectedCell ? updateCell(selectedCell, parseInt(e.key)) : cell
+                    cell.id === selectedCellID ? updateCell(cell, parseInt(e.key)) : cell
                 ))
             }
-            if (selectedCell && e.key === 'Backspace' || e.key === 'Delete') {
+            if (selectedCellID && e.key === 'Backspace' || e.key === 'Delete') {
                 setBoard(board.map(cell => 
-                    cell === selectedCell ? updateCell(selectedCell, null) : cell
+                    cell.id === selectedCellID ? updateCell(cell, null) : cell
                 ))
             }
         }
         window.addEventListener('keydown', handleKeyPress)
         return () => window.removeEventListener('keydown', handleKeyPress)
-    }, [selectedCell, board])
+    }, [selectedCellID, board])
 
+
+    //To de-select: handle clicks outside the board
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (!e.target.closest('.board')) {
+                setSelectedCellID(null)
+            }
+        }
+        
+        document.addEventListener('click', handleClickOutside)
+        return () => document.removeEventListener('click', handleClickOutside)
+    }, [])
+
+    
     return(
         <div className="board">
             {board.map(cell => 
@@ -46,6 +61,5 @@ export default function Board() {
                 )
             }
         </div>
-       
     )
 }
