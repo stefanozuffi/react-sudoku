@@ -1,13 +1,14 @@
 import AppFooter from "./assets/components/AppFooter"
 import AppHeader from "./assets/components/AppHeader"
-import Board from "./assets/components/Board"
+import AppMain from "./assets/components/AppMain"
+
 
 function App() {
 
   return (
     <>
       <AppHeader/>
-      <Board/>
+      <AppMain/>
       <AppFooter/>
     </>
   )

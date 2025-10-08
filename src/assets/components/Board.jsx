@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react"
 import emptyBoard from "../data/initialBoard"
 import { puzzles, thisPuzzle, FromPuzzleToBoard } from "../data/examples"
-import Cell from "./Cell"
 import updateCell from "../utils/updateCell"
-import CheckSolution from "./CheckSolution"
 import { bruteCheck } from "../utils/isSolution"
+import Cell from "./Cell"
+import CheckSolution from "./CheckSolution"
+import CheckResult from "./CheckResult"
+
 
 export default function Board() {
     const [board, setBoard] = useState(thisPuzzle)
     const [selectedCellID, setSelectedCellID] = useState(null)
+
+    //pop-up states
+    const [showPopUp, setShowPopUp] = useState(false)
+    const [showWin, setShowWin] = useState(false)
+    const [showErr, setShowErr] = useState(false)
 
     //to handle cell selection
     function handleCellClick(e) {
@@ -59,7 +66,14 @@ export default function Board() {
 
     //To handle debug brute check for mistakes
     function debugHandleClick() {
-        bruteCheck(board)
+        const winObj = bruteCheck(board)
+        setShowPopUp(true)
+
+        if (winObj.win) {
+            setShowWin(true)
+        } else if (winObj.mistakes.length > 0) {
+            setShowErr(true)
+        }
     }
 
     return(
@@ -76,7 +90,9 @@ export default function Board() {
                     )
                 }
             </div>
+            <CheckResult checkClicked={showPopUp} showWin={showWin} showErr={showErr}/>
             <CheckSolution handleCheck={debugHandleClick}/>
+
         </div>
        
     )

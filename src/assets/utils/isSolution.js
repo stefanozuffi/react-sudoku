@@ -20,7 +20,8 @@ for (let row=0; row < 9; row = row+3) {
 
 export function bruteCheck(board) {
 
-    let mistakes = 0
+    let mistakes = []
+    let mistakesNum = 0
 
     //Control Loop
     for (let i=0; i<board.length; i++) {
@@ -39,22 +40,39 @@ export function bruteCheck(board) {
             || !cellCol.every(otherCell => cell.row !== otherCell.row ? cell.value !== otherCell.value : true)
             || !EnnaCell.every(otherCell => cell.col !== otherCell.col || cell.row !== otherCell.row ? cell.value !== otherCell.value : true)
             ) {
-                mistakes += 1
-                console.log('value', board[i].value, 'row', board[i].row)
-                console.log('ARRAYSSSSSS')
-                console.log(cellRow, cellCol, EnnaCell)
+                const mistake = {
+                    id: mistakesNum,
+                    row: cell.row,
+                    col: cell.col,
+                    value: cell.value
+                }
+                mistakes.push(mistake)
+                mistakesNum += 1
+                console.log('value', mistake.value, 'row', mistake.row)
             }
         }
     }
 
-    if (mistakes > 0) {
-        alert('There is a mistake!')
-        return false
+    console.log(mistakes)
+    if (mistakes.length > 0) {
+        return {
+            win: false, 
+            mistakes
+        }
     } else {
         console.log('No Mistake Found')
+        
         if (board.every(cell => cell.value)) {
             console.log('You solved it!')
-            return true
+            return {
+                win: true, 
+                mistakes
+            }
+        }
+        
+        return {
+            win: false,
+            mistakes
         }
     }
 }
