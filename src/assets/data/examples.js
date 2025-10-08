@@ -1,4 +1,6 @@
 export const puzzles = {
+
+    //NOTE: THERE ARE MISTAKES IN THE SOLUTION
     facile1: {
       difficulty: "facile",
       cellsCount: 38, 
@@ -185,7 +187,7 @@ export function FromPuzzleToBoard(puzzle) {
       );
     }
 
-export const thisPuzzle = FromPuzzleToBoard('medio2')
+export const thisPuzzle = FromPuzzleToBoard('facile1')
 
             
 

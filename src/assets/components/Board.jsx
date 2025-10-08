@@ -63,7 +63,7 @@ export default function Board() {
     }
 
     return(
-        <div> 
+        <div className="container"> 
             <div className="board">
                 {board.map(cell => 
                     <Cell 

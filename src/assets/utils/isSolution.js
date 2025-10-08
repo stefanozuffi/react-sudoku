@@ -20,17 +20,6 @@ for (let row=0; row < 9; row = row+3) {
 
 export function bruteCheck(board) {
 
-    //Debug
-    // const firstCell = board[0]
-    // const firstEnnaEmpty = EnnaCells.find(ennaCell => 
-    //     ennaCell.some(otherCell => otherCell.row === firstCell.row && otherCell.col === otherCell.col))
-    // const firstEnnaCell = board.filter(otherCell => firstEnnaEmpty.some(emptyCell => emptyCell.row ===otherCell.row && emptyCell.col === otherCell.col))
-    
-    // console.log(EnnaCells)
-    // console.log(firstEnnaEmpty)
-    // console.log(firstEnnaCell)
-    //End Debug
-
     let mistakes = 0
 
     //Control Loop
@@ -51,9 +40,9 @@ export function bruteCheck(board) {
             || !EnnaCell.every(otherCell => cell.col !== otherCell.col || cell.row !== otherCell.row ? cell.value !== otherCell.value : true)
             ) {
                 mistakes += 1
-                // console.log('value', board[i].value, 'row', board[i].row)
-                // console.log('ARRAYSSSSSS')
-                // console.log(cellRow, cellCol, EnnaCell)
+                console.log('value', board[i].value, 'row', board[i].row)
+                console.log('ARRAYSSSSSS')
+                console.log(cellRow, cellCol, EnnaCell)
             }
         }
     }

@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +9,20 @@ body {
   background-color: pink;
 }
 
+.container {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* Header */
+header {
+  background-color: lightcoral;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 /* Board and cells */
 .board {
@@ -59,4 +74,15 @@ body {
 
 .selected {
   background-color: lightblue;
+}
+
+.btn {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: lightcoral;
+  padding: 20px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }

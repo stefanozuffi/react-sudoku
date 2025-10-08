@@ -3,6 +3,6 @@ import { EnnaCells,bruteCheck } from "../utils/isSolution"
 export default function CheckSolution(props) {
 
     return(
-        <button onClick={props.handleCheck}>Check</button>
+        <button className="btn btn-primary" onClick={props.handleCheck}>Check for Mistakes</button>
     )
 }
