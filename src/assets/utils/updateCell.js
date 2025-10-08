@@ -1,3 +1,3 @@
 export default function updateCell(cell, value) {
-    cell.value = value
+    return {...cell, value: value}
 }
