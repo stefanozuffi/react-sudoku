@@ -30,6 +30,7 @@ header {
   }
 }
 
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -45,24 +46,80 @@ header {
     h6 {
       font-size: 16px;
       margin-top: 4px;
+      font-weight: 600;
     }
+}
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  background-color: bisque;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+}
+#AccTxt {
+  font-weight: 100;
+}
 
-  }
+#mainAcc #AccTxt:hover {
+  color: bisque;
+}
+#mainAcc #mainCaret:hover {
+  border-top: 6px solid bisque;
+}
 
-  button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 16px;
-    background-color: bisque;
-    color: #000;
-    border: none;
-    border-radius: 5px;
+#mainCaret.colored{
+  border-top: 6px solid bisque;
+}
+
+.caret {
+  border-top: 6px solid #000;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  color:bisque;
+}
+
+/* #region Accordion */
+.nested-accordion {
+  text-align: left;
+  background-color: bisque;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: fit-content;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  position: absolute;
+}
+
+.nested-accordion .accordion-head{
+  margin-left: 20px;
+}
+
+.nested-accordion ul {
+  list-style-type: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  padding-left: 0;
+
+  li {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    
   }
 }
+
+/* endregion */
 
 @media (max-width: 768px) {
   .container {
@@ -79,25 +136,6 @@ header {
 
   .header-container button {
     order: 2;
-  }
-}
-
-/* Accordion */
-.nested-accordion .accordion-head{
-  margin-left: 20px;
-}
-
-.nested-accordion ul {
-  list-style-type: none;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  font-size: 12px;
-  padding-left: 0;
-
-  li {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    cursor: pointer;
   }
 }
 

@@ -14,7 +14,7 @@ export default function NestedAcc(props) {
              <div className="accordion easy-accordion">
                 <div className="accordion-head" onClick={props.handleClick} data-id={1}>
                     <h6>Easy</h6>
-                    <img className='caret-down' src={props.ternary===1 ? CaretUp : CaretDown} alt="caret-down"/> 
+                    <img className='caret' src={props.ternary===1 ? CaretUp : CaretDown} alt="caret"/> 
                 </div>
                 {props.ternary===1 &&
                     <ul>
@@ -32,7 +32,7 @@ export default function NestedAcc(props) {
              <div className="accordion medium-accordion">
                 <div className="accordion-head" onClick={props.handleClick} data-id={2}>
                     <h6>Medium</h6>
-                    <img className='caret-down' src={props.ternary===2 ? CaretUp : CaretDown} alt="caret-down"/> 
+                    <img className='caret' src={props.ternary===2 ? CaretUp : CaretDown} alt="caret"/> 
                 </div>
                 {props.ternary===2 &&
                     <ul>
@@ -49,7 +49,7 @@ export default function NestedAcc(props) {
              <div className="accordion difficult-accordion" onClick={props.handleClick} data-id={3}>
                 <div className="accordion-head">
                     <h6>Difficult</h6>
-                    <img className='caret-down' src={props.ternary===3 ? CaretUp : CaretDown} alt="caret-down"/> 
+                    <img className='caret' src={props.ternary===3 ? CaretUp : CaretDown} alt="caret"/>  
                 </div>
                 {props.ternary===3 &&
                     <ul>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GeneratorButton from "./GeneratorButton";
 import HeaderAccordion from "./HeaderAccordion";
 
@@ -8,6 +8,17 @@ export default function AppHeader(props) {
     function handleClick() {
         setFirstAcc(!firstAcc)
     }
+
+    useEffect(()=> {
+        const handleOutAcc = (e) => {
+            if (!e.target.closest('#mainAcc')) {
+                console.log('closing the accordion..')
+                setFirstAcc(false)
+            }
+        }
+        document.addEventListener('click', handleOutAcc)
+        return () => document.removeEventListener('click', handleOutAcc)
+    },[])
     
     return( 
         <header className="large-cont">
