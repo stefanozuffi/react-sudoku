@@ -15,9 +15,6 @@ for (let row=0; row < 9; row = row+3) {
     }
 }
 
-
-
-
 export function bruteCheck(board) {
 
     let mistakes = []

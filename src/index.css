@@ -80,23 +80,47 @@ header {
   margin-bottom: 20px;
 }
 
-.pop-up {
-  position: relative;
+/* Pop-up */
+
+.pop-up-container {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  translate: -50% -50%;
+
+  /* width: 300px;
+  height: 150px; */
+  padding: 20px;
+  border-radius: 10px;
+
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000;
+  background: rgb(49, 108, 244);
+  z-index: 10;
   display: none;
 }
 
-.pop-up.show {
-  transform: translate(-50%, -50%) scale(1);
+.pop-up {
+  display: none;
+}
+
+.show {
   display: block;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .resume {
+    background-color: bisque;
+    color: #000;
+  }
+  .restart {
+    background-color: lightcoral;
+    color: #000;
+  }
 }
 
 /* Footer */

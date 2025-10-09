@@ -64,8 +64,8 @@ export default function Board() {
     }, [])
 
 
-    //To handle debug brute check for mistakes
-    function debugHandleClick() {
+    //To handle check for mistakes and pop-up message
+    function handleCheckClick() {
         const winObj = bruteCheck(board)
         setShowPopUp(true)
 
@@ -75,6 +75,21 @@ export default function Board() {
             setShowErr(true)
         }
     }
+
+    //To handle restart button in pop-up
+    function handleRestart() {
+        console.log('restart clicked')
+        setBoard(thisPuzzle)
+        setSelectedCellID(null)
+        setShowPopUp(false)
+    }
+    //To handle resume button in pop-up
+    function handleResume() {
+        console.log('resume clicked')
+        setShowPopUp(false)
+    }
+
+
 
     return(
         <div className="container"> 
@@ -90,8 +105,8 @@ export default function Board() {
                     )
                 }
             </div>
-            <CheckResult checkClicked={showPopUp} showWin={showWin} showErr={showErr}/>
-            <CheckSolution handleCheck={debugHandleClick}/>
+            <CheckResult checkClicked={showPopUp} showWin={showWin} showErr={showErr} handleRestart={handleRestart} handleResume={handleResume}/>
+            <CheckSolution handleCheck={handleCheckClick}/>
 
         </div>
        
