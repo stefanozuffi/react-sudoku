@@ -16,12 +16,18 @@ body {
   width: 60%;
 }
 
-/* Header */
+/* #region Header */
 header {
   background-color: lightcoral;
   padding: 20px 0;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
 }
 
 .header-container {
@@ -35,10 +41,9 @@ header {
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    font-size: 12px;
 
     h6 {
-      font-size: 12px;
+      font-size: 16px;
       margin-top: 4px;
     }
 
@@ -47,7 +52,7 @@ header {
   button {
     padding: 10px 20px;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 16px;
     background-color: bisque;
     color: #000;
     border: none;
@@ -95,9 +100,9 @@ header {
   }
 }
 
+/* #endregion */
 
-
-/* Board and cells */
+/* #region Board and cells */
 .board-container {
   display: flex;
   flex-direction: column;
@@ -164,9 +169,9 @@ header {
 .btn {
   margin-bottom: 20px;
 }
+/* #endregion */
 
-/* Pop-up */
-
+/* #region Pop-Up */
 .pop-up-container {
   color: white;
   font-size: 24px;
@@ -207,10 +212,12 @@ header {
     color: #000;
   }
 }
+/* #endregion */
 
-/* Footer */
+/* #region Footer */
 footer {
   background-color: lightcoral;
   padding: 20px;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
+/* #endregion */
