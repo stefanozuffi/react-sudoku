@@ -15,7 +15,7 @@ export default function NestedAcc(props) {
                     <ul>
                         {Object.keys(puzzles).map(puzzle => {
                             if (puzzles[puzzle].difficulty === 'facile') {
-                                return (<li> {puzzle} </li>)
+                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> {puzzle} </li>)
                             }
                             return null
                         })
@@ -33,7 +33,7 @@ export default function NestedAcc(props) {
                     <ul>
                         {Object.keys(puzzles).map(puzzle => {
                             if (puzzles[puzzle].difficulty === 'medio') {
-                                return (<li> {`${puzzle}`} </li>)
+                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> {puzzle} </li>)
                             }
                             return null
                         })
@@ -50,7 +50,7 @@ export default function NestedAcc(props) {
                     <ul>
                         {Object.keys(puzzles).map(puzzle => {
                             if (puzzles[puzzle].difficulty === 'difficile') {
-                                return (<li> {`${puzzle}`} </li>)
+                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> {puzzle} </li>)
                             }
                             return null
                         })
