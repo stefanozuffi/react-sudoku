@@ -78,21 +78,19 @@ export default function Board() {
 
     //To handle restart button in pop-up
     function handleRestart() {
-        console.log('restart clicked')
         setBoard(thisPuzzle)
         setSelectedCellID(null)
         setShowPopUp(false)
     }
     //To handle resume button in pop-up
     function handleResume() {
-        console.log('resume clicked')
         setShowPopUp(false)
     }
 
 
 
     return(
-        <div className="container"> 
+        <div className="container board-container"> 
             <div className="board">
                 {board.map(cell => 
                     <Cell 
@@ -107,7 +105,6 @@ export default function Board() {
             </div>
             <CheckResult checkClicked={showPopUp} showWin={showWin} showErr={showErr} handleRestart={handleRestart} handleResume={handleResume}/>
             <CheckSolution handleCheck={handleCheckClick}/>
-
         </div>
        
     )

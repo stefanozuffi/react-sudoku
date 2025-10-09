@@ -1,7 +1,23 @@
+import { useState } from "react";
+import GeneratorButton from "./GeneratorButton";
+import HeaderAccordion from "./HeaderAccordion";
+
 export default function AppHeader() {
+    const [firstAcc, setFirstAcc] = useState(false)
+
+    function handleClick() {
+        setFirstAcc(!firstAcc)
+    }
+    
     return(
-        <header className="container">
-            <h1>Sudoku</h1>
+        <header className="large-cont">
+           
+            <div className="container header-container">
+                 <GeneratorButton/>
+                <h1>Sudoku</h1>
+                <HeaderAccordion handleAcc={handleClick} state={firstAcc}/>
+            </div>
+            
         </header>
     )
 }
