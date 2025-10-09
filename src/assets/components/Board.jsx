@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import emptyBoard from "../data/initialBoard"
-import { puzzles,FromPuzzleToBoard } from "../data/examples"
+import { puzzles, FromPuzzleToBoard } from "../data/examples"
 import updateCell from "../utils/updateCell"
 import { bruteCheck } from "../utils/isSolution"
 import Cell from "./Cell"
@@ -109,7 +109,7 @@ export default function Board({board, setBoard, currentPuzzle}) {
                     )
                 }
             </div>
-            <CheckResult checkClicked={showPopUp} showWin={showWin} showErr={showErr} handleRestart={handleRestart} handleResume={handleResume}/>
+            <CheckResult checkClicked={showPopUp} showWin={showWin} showErr={showErr} handleRestart={handleRestart} handleResume={handleResume} currentPuzzle={currentPuzzle}/>
             <CheckSolution handleCheck={handleCheckClick}/>
         </div>
        

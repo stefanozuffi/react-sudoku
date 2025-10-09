@@ -2,6 +2,7 @@ import CaretDown from '../../../src/img/caret-down.svg'
 import CaretUp from '../../../src/img/caret-up.svg'
 import { puzzles } from '../data/examples'
 
+
 export default function NestedAcc(props) {
 
     const handlePuzzleClick = (puzzlename) => {

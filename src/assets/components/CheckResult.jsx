@@ -1,9 +1,5 @@
 export default function CheckResult(props) {
 
-    const handleRestart = (puzzle) => {
-        props.handleRestart(puzzle)
-    }
-
     return(
         <div className={`container pop-up-container ${props.checkClicked ? 'show': ''}`}>
             <div className={`pop-up win ${props.showWin ? 'show': ''}`}>
@@ -16,7 +12,7 @@ export default function CheckResult(props) {
                 <h3>No mistakes..but you are not done either!</h3>
             </div>
             <div className="buttons">
-                <button onClick={() => handleRestart()} className="btn btn-secondary restart">Restart</button>
+                <button onClick={() => props.handleRestart(props.currentPuzzle)} className="btn btn-secondary restart">Restart</button>
                 <button onClick={props.handleResume} className="btn btn-secondary resume">Resume</button>
             </div>
             
