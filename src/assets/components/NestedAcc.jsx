@@ -4,6 +4,10 @@ import { puzzles } from '../data/examples'
 
 export default function NestedAcc(props) {
 
+    const handlePuzzleClick = (puzzlename) => {
+        props.handleChoice(puzzlename)
+    }
+
     return(
         <div className="nested-accordion accordion">
              <div className="accordion easy-accordion">
@@ -15,11 +19,11 @@ export default function NestedAcc(props) {
                     <ul>
                         {Object.keys(puzzles).map(puzzle => {
                             if (puzzles[puzzle].difficulty === 'facile') {
-                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> <h6 onClick={props.handleChoice}>{puzzle}</h6> </li>)
+                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> <h6 onClick={()=>handlePuzzleClick(puzzle)}>{puzzle}</h6> </li>)
                             }
                             return null
                         })
-                    } 
+                    }  
                     </ul>
                 }
              </div>
@@ -33,7 +37,7 @@ export default function NestedAcc(props) {
                     <ul>
                         {Object.keys(puzzles).map(puzzle => {
                             if (puzzles[puzzle].difficulty === 'medio') {
-                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> <h6 onClick={props.handleChoice}>{puzzle}</h6> </li>)
+                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> <h6 onClick={()=>handlePuzzleClick(puzzle)}>{puzzle}</h6> </li>)
                             }
                             return null
                         })
@@ -50,7 +54,7 @@ export default function NestedAcc(props) {
                     <ul>
                         {Object.keys(puzzles).map(puzzle => {
                             if (puzzles[puzzle].difficulty === 'difficile') {
-                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> <h6 onClick={props.handleChoice}>{puzzle}</h6> </li>)
+                                return (<li key={Object.keys(puzzles).indexOf(puzzle)}> <h6 onClick={() => handlePuzzleClick(puzzle)}>{puzzle}</h6> </li>)
                             }
                             return null
                         })

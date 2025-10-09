@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import emptyBoard from "../data/initialBoard"
-import { puzzles, thisPuzzle, FromPuzzleToBoard } from "../data/examples"
+import { puzzles,FromPuzzleToBoard } from "../data/examples"
 import updateCell from "../utils/updateCell"
 import { bruteCheck } from "../utils/isSolution"
 import Cell from "./Cell"
@@ -8,8 +8,7 @@ import CheckSolution from "./CheckSolution"
 import CheckResult from "./CheckResult"
 
 
-export default function Board() {
-    const [board, setBoard] = useState(thisPuzzle)
+export default function Board({board, setBoard, currentPuzzle}) {
     const [selectedCellID, setSelectedCellID] = useState(null)
 
     //pop-up states
@@ -33,7 +32,7 @@ export default function Board() {
     }
 
     //to type/modify/delete numbers inside the cells
-    useEffect(()=> {
+    useEffect(() => {
         const handleKeyPress = (e) => {
             if (selectedCellID && e.key >= '1' && e.key <= '9')  {
                 setBoard(board.map(cell =>
@@ -50,6 +49,13 @@ export default function Board() {
         return () => window.removeEventListener('keydown', handleKeyPress)
     }, [selectedCellID, board])
 
+    //to reset selected cell after puzzle change
+    useEffect(() => {
+        setSelectedCellID(null)
+        setShowPopUp(false)
+        setShowErr(false)
+        setShowWin(false)
+    },[currentPuzzle])
 
     //To de-select: handle clicks outside the board
     useEffect(() => {
@@ -78,7 +84,7 @@ export default function Board() {
 
     //To handle restart button in pop-up
     function handleRestart() {
-        setBoard(thisPuzzle)
+        setBoard(FromPuzzleToBoard(currentPuzzle))
         setSelectedCellID(null)
         setShowPopUp(false)
     }

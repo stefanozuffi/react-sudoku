@@ -9,7 +9,7 @@ export default function HeaderAccordion(props) {
     function handleClick(e) {
         const id = parseInt(e.currentTarget.getAttribute('data-id'))
         if (id === ternary) {
-            setTernary(0)
+            setTernary(0) 
         } else {
             setTernary(id)
         }
@@ -23,7 +23,7 @@ export default function HeaderAccordion(props) {
             </div>
             {
                 props.state && 
-                <NestedAcc handleClick={handleClick} ternary={ternary}/>
+                <NestedAcc handleClick={handleClick} ternary={ternary} handleChoice={props.handleChoice}/>
             }
         </div>
     )

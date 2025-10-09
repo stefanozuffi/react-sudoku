@@ -1,9 +1,9 @@
 import Board from "./Board";
 
-export default function AppMain() {
+export default function AppMain(props) {
     return(
         <main>
-            <Board/>
+            <Board board={props.board} setBoard={props.setBoard}/>
         </main>
         )
         
