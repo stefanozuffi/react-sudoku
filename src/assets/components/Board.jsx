@@ -76,8 +76,10 @@ export default function Board({board, setBoard, currentPuzzle}) {
         setShowPopUp(true)
 
         if (winObj.win) {
+            setShowErr(false)
             setShowWin(true)
         } else if (winObj.mistakes.length > 0) {
+            setShowWin(false)
             setShowErr(true)
         }
     }
