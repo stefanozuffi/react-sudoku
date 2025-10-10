@@ -16,7 +16,7 @@ export default function HeaderAccordion(props) {
         
     }
     return(
-        <div className="accordion" id='mainAcc'>
+        <div className={`accordion ${props.state ? 'height' : ''}`} id='mainAcc'>
             <div className="accordion-head" onClick={props.handleAcc}>
                     <h6 id='AccTxt'>Choose difficulty</h6>
                     <img id='mainCaret' className={`caret ${props.state ? 'colored' : ''}`} src={props.state ? CaretUp : CaretDown} alt="caret"/>  
