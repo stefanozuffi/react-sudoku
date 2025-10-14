@@ -6,7 +6,8 @@
 }
 
 body {
-  background-color: pink;
+  /* ff8d67 */
+  background: linear-gradient(135deg, rgb(210, 66, 90) -20%, pink 100%);
 }
 
 .container {
@@ -16,9 +17,14 @@ body {
   width: 60%;
 }
 
+button {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    border: none;
+  }
+
 /* #region Header */
 header {
-  background-color: lightcoral;
+  background: linear-gradient(135deg, #f5cc93 -50%, lightcoral 100%);
   padding: 20px 0;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -99,8 +105,9 @@ button {
 /* #region Accordion */
 .nested-accordion {
   text-align: left;
-  background-color: bisque;
-  border: 1px solid #ccc;
+  /* background-color: bisque; */
+  background: linear-gradient(135deg, #f5cc93 -50%, lightcoral 100%);
+  border: 1px solid #8d0303;
   border-radius: 5px;
   padding: 10px;
   width: fit-content;
@@ -218,11 +225,17 @@ button {
 .btn {
   margin-bottom: 20px;
 }
+
+.check-btn {
+  background: linear-gradient(135deg, rgb(20, 187, 20), rgb(97, 59, 59));
+  border: none;
+  color: wheat;
+}
 /* #endregion */
 
 /* #region Pop-Up */
 .pop-up-container {
-  color: white;
+  color: bisque;
   font-size: 24px;
   position: absolute;
   translate: -50% -50%;
@@ -234,7 +247,7 @@ button {
 
   top: 50%;
   left: 50%;
-  background: rgb(49, 108, 244);
+  background: linear-gradient(135deg, rgb(141, 175, 255) -50%, rgb(49, 108, 244) 100%);
   z-index: 10;
   display: none;
 }
@@ -253,19 +266,23 @@ button {
   gap: 20px;
 
   .resume {
+    
     background-color: bisque;
     color: #000;
+    
   }
   .restart {
     background-color: lightcoral;
     color: #000;
   }
+
+
 }
 /* #endregion */
 
 /* #region Footer */
 footer {
-  background-color: lightcoral;
+  background: linear-gradient(135deg, #f5cc93 -50%, lightcoral 100%);
   padding: 20px;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }

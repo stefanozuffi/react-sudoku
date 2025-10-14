@@ -168,7 +168,7 @@ export const puzzles = {
 
 export function FromPuzzleToBoard(puzzle) {
 
-    const boardValues = puzzles[puzzle].solution
+    const boardValues = puzzles[puzzle].initial
 
     return Array(9).fill(null).flatMap((_, row) => 
         Array(9).fill(null).map((_, col) => {
